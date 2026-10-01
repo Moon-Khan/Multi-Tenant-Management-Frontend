@@ -1,7 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { Layout } from './components/Layout'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
+import { DashboardPage } from './pages/DashboardPage'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 export default function App() {
   return (
@@ -10,17 +13,17 @@ export default function App() {
       <Route path="/register" element={<RegisterPage />} />
 
       <Route
-        path="/"
         element={
           <ProtectedRoute>
-            <div className="flex min-h-screen items-center justify-center text-slate-500">
-              Signed in — the dashboard arrives in a later feature.
-            </div>
+            <Layout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route path="/" element={<DashboardPage />} />
+      </Route>
 
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="/404" element={<NotFoundPage />} />
+      <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>
   )
 }
