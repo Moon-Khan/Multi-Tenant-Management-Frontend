@@ -4,7 +4,10 @@ import { useAuth } from '../context/AuthContext'
 import { useToast } from '../context/ToastContext'
 import { RoleBadge } from './RoleBadge'
 
-const nav = [{ to: '/', label: 'Dashboard', icon: '▣', end: true }]
+const nav = [
+  { to: '/', label: 'Dashboard', icon: '▣', end: true },
+  { to: '/notes', label: 'Notes', icon: '✎', end: false },
+]
 
 export function Layout() {
   const { user, logout } = useAuth()
