@@ -7,6 +7,7 @@ import { RoleBadge } from './RoleBadge'
 const nav = [
   { to: '/', label: 'Dashboard', icon: '▣', end: true },
   { to: '/notes', label: 'Notes', icon: '✎', end: false },
+  { to: '/tenants', label: 'Tenants', icon: '◱', end: false },
 ]
 
 export function Layout() {
