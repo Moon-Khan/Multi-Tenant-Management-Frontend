@@ -4,6 +4,7 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { DashboardPage } from './pages/DashboardPage'
+import { NotesPage } from './pages/NotesPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         }
       >
         <Route path="/" element={<DashboardPage />} />
+        <Route path="/notes" element={<NotesPage />} />
       </Route>
 
       <Route path="/404" element={<NotFoundPage />} />
