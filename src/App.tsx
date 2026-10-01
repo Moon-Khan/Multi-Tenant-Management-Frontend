@@ -1,16 +1,26 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { ProtectedRoute } from './components/ProtectedRoute'
+import { LoginPage } from './pages/LoginPage'
+import { RegisterPage } from './pages/RegisterPage'
 
 export default function App() {
   return (
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+
       <Route
-        path="*"
+        path="/"
         element={
-          <div className="flex min-h-screen items-center justify-center text-slate-500">
-            Atlas console — scaffolding in progress.
-          </div>
+          <ProtectedRoute>
+            <div className="flex min-h-screen items-center justify-center text-slate-500">
+              Signed in — the dashboard arrives in a later feature.
+            </div>
+          </ProtectedRoute>
         }
       />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
